@@ -1,0 +1,1 @@
+write text using fs.writefilewrite text using fs.writefile, (update file using appendfile)
