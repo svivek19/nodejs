@@ -22,6 +22,8 @@ const fileOperations = async () => {
       path.join(__dirname, "files", "vivek.txt")
     );
     console.log("rename completed");
+    await fsPromises.unlink(path.join(__dirname, "files", "start.txt"));
+    console.log("delete completed");
   } catch (error) {
     console.error(error);
   }
