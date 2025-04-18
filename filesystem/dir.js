@@ -1,9 +1,9 @@
 const fs = require("fs");
 
-if (!fs.existsSync("./new")) {
-  fs.mkdir("./new", (err) => {
+if (fs.existsSync("./new")) {
+  fs.rmdir("./new", (err) => {
     if (err) throw err;
-    console.log("directory created");
+    console.log("directory removed");
   });
 }
 
