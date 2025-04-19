@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #0f2027;
+        color: white;
+        line-height: 1.6;
+      }
+      header {
+        background: #203a43;
+        padding: 20px 40px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      header h1 {
+        font-size: 2em;
+        animation: slideIn 1s ease-out;
+      }
+      nav a {
+        margin: 0 15px;
+        color: #00d4ff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: #ff8c00;
+      }
+      section {
+        padding: 60px 40px;
+        min-height: 100vh;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+      }
+      section.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero {
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+        text-align: center;
+        padding-top: 100px;
+      }
+      .hero h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #00d4ff;
+      }
+      .hero p {
+        font-size: 1.2em;
+        max-width: 600px;
+        margin: auto;
+      }
+      .projects,
+      .contact {
+        background: #1c1c1c;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background: #111;
+        font-size: 0.9em;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Portfolio</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="about">
+      <h2>Hello, I'm Vivek</h2>
+      <p>
+        A passionate web developer skilled in HTML, CSS, JavaScript, and MERN
+        stack. I love creating interactive and animated web experiences.
+      </p>
+    </section>
+
+    <section class="projects" id="projects">
+      <h2>Projects</h2>
+      <p>Here are some of my latest works:</p>
+      <ul>
+        <li>✔️ E-commerce Website</li>
+        <li>✔️ Doctor-Patient Chat System</li>
+        <li>✔️ AI Skill Roadmap Generator</li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <p>
+        Feel free to reach out at:
+        <a href="mailto:youremail@example.com" style="color: #00d4ff"
+          >youremail@example.com</a
+        >
+      </p>
+    </section>
+
+    <footer>&copy; 2025 Vivek. All rights reserved.</footer>
+
+    <script>
+      const sections = document.querySelectorAll("section");
+      const reveal = () => {
+        const triggerBottom = window.innerHeight / 1.2;
+        sections.forEach((section) => {
+          const top = section.getBoundingClientRect().top;
+          if (top < triggerBottom) {
+            section.classList.add("active");
+          }
+        });
+      };
+      window.addEventListener("scroll", reveal);
+      window.addEventListener("load", reveal);
+    </script>
+  </body>
+</html>
