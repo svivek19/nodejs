@@ -7,7 +7,7 @@ router.get("/add", (req, res, next) => {
   );
 });
 
-router.post("/store", (req, res, next) => {
+router.post("/add", (req, res, next) => {
   console.log(req.body);
   res.send("<b>submitted</b>");
 });
